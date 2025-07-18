@@ -1,2 +1,2 @@
-# User-deletion-script
-This is a Power Shell script that will allow you to add terminated users to the code and run it in an elevated powershell to clean out profiles.
+# Useful Powershell scripts that I've used to run jobs
+This is a gathering of powershell scripts that I have used in the past to run jobs and automate things.
