@@ -1,0 +1,17 @@
+#Terminated User deletion Powershell Script
+
+# Replace with usernames you want to delete
+$usernamesToDelete = @("Firstname.lastname", "Firstname.Lastname", "Firstname.Lastname")
+
+foreach ($username in $usernamesToDelete) {
+    $profile = Get-CimInstance Win32_UserProfile | Where-Object {
+        $_.LocalPath -match "\\$username$" -and $_.Special -eq $false
+    }
+
+    if ($profile) {
+        Write-Output "Deleting profile: $($profile.LocalPath)"
+        $profile | Remove-CimInstance
+    } else {
+        Write-Output "Profile for $username not found."
+    }
+}
